@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Document</title>
+</head>
+<body>
+ 
+  <div id="app">
+    <form @submit.prevent="getWeather">
+      <input type="text" v-model="city" placeholder="Enter city name">
+      <button type="submit">Get Weather</button>
+    </form>
+
+    <p v-if="loading">Loading...</p>
+
+    <div v-if="weather">
+      <h3>{{ weather.name }}</h3>
+      <p>Temperature: {{ weather.main.temp_min }}°K</p>
+      <p>Humidity: {{ weather.main.humidity }}%</p>
+      <p>Pressure: {{ weather.main.pressure }}hPa</p>
+      <p>Weather: {{ weather.weather[0].description }}</p>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="main.js"></script>
+  
+  
+
+</body>
+</html>
